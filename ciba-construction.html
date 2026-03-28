@@ -1,0 +1,1061 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CIBA Construction Company Limited | Lagos, Nigeria</title>
+<link href="https://fonts.googleapis.com/css2?family=Black+Ops+One&family=Barlow:wght@300;400;500;600;700&family=Barlow+Condensed:wght@700;800;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --black: #0a0a0a;
+    --dark: #111111;
+    --charcoal: #1c1c1c;
+    --orange: #E85D04;
+    --amber: #F48C06;
+    --yellow: #FAA307;
+    --light: #f0ebe3;
+    --muted: #888;
+    --border: rgba(255,255,255,0.07);
+  }
+
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--black);
+    color: var(--light);
+    font-family: 'Barlow', sans-serif;
+    overflow-x: hidden;
+  }
+
+  /* NOISE OVERLAY */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 9999;
+    opacity: 0.4;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.4rem 3rem;
+    background: rgba(10,10,10,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .nav-logo {
+    font-family: 'Black Ops One', cursive;
+    font-size: 1.4rem;
+    letter-spacing: 2px;
+    color: var(--orange);
+  }
+
+  .nav-logo span { color: var(--light); }
+
+  .nav-links {
+    display: flex;
+    gap: 2.5rem;
+    list-style: none;
+  }
+
+  .nav-links a {
+    text-decoration: none;
+    color: var(--muted);
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--orange); }
+
+  .nav-cta {
+    background: var(--orange);
+    color: white !important;
+    padding: 0.55rem 1.4rem !important;
+    clip-path: polygon(8px 0%, 100% 0%, calc(100% - 8px) 100%, 0% 100%);
+    transition: background 0.2s !important;
+  }
+  .nav-cta:hover { background: var(--amber) !important; color: white !important; }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 0 3rem 5rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(135deg, rgba(232,93,4,0.15) 0%, transparent 50%),
+      repeating-linear-gradient(
+        -45deg,
+        transparent,
+        transparent 40px,
+        rgba(232,93,4,0.03) 40px,
+        rgba(232,93,4,0.03) 41px
+      );
+  }
+
+  .hero-grid {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(232,93,4,0.08) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(232,93,4,0.08) 1px, transparent 1px);
+    background-size: 60px 60px;
+    mask-image: radial-gradient(ellipse 80% 80% at 20% 80%, black 30%, transparent 80%);
+  }
+
+  .hero-accent {
+    position: absolute;
+    top: 15%;
+    right: -5%;
+    width: 500px;
+    height: 500px;
+    border: 1px solid rgba(232,93,4,0.15);
+    transform: rotate(15deg);
+  }
+  .hero-accent::before {
+    content: '';
+    position: absolute;
+    inset: 20px;
+    border: 1px solid rgba(232,93,4,0.1);
+    transform: rotate(-5deg);
+  }
+
+  .hero-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    background: rgba(232,93,4,0.12);
+    border: 1px solid rgba(232,93,4,0.3);
+    padding: 0.4rem 1rem;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--orange);
+    margin-bottom: 1.5rem;
+    width: fit-content;
+    animation: fadeUp 0.8s ease both;
+  }
+
+  .hero-tag::before {
+    content: '';
+    display: block;
+    width: 6px;
+    height: 6px;
+    background: var(--orange);
+    border-radius: 50%;
+    animation: pulse 2s infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.4; transform: scale(0.7); }
+  }
+
+  h1 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: clamp(4rem, 10vw, 9rem);
+    font-weight: 900;
+    line-height: 0.9;
+    text-transform: uppercase;
+    letter-spacing: -2px;
+    animation: fadeUp 0.8s 0.1s ease both;
+  }
+
+  h1 .line-orange { color: var(--orange); display: block; }
+  h1 .line-stroke {
+    -webkit-text-stroke: 1px rgba(240,235,227,0.3);
+    color: transparent;
+    display: block;
+  }
+
+  .hero-sub {
+    font-size: 1.05rem;
+    color: var(--muted);
+    font-weight: 300;
+    max-width: 480px;
+    margin-top: 1.5rem;
+    line-height: 1.7;
+    animation: fadeUp 0.8s 0.2s ease both;
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: 1rem;
+    margin-top: 2.5rem;
+    animation: fadeUp 0.8s 0.3s ease both;
+  }
+
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    background: var(--orange);
+    color: white;
+    padding: 1rem 2rem;
+    font-family: 'Barlow', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    text-decoration: none;
+    clip-path: polygon(12px 0%, 100% 0%, calc(100% - 12px) 100%, 0% 100%);
+    transition: background 0.2s, transform 0.2s;
+  }
+
+  .btn-primary:hover { background: var(--amber); transform: translateX(3px); }
+
+  .btn-outline {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    background: transparent;
+    color: var(--light);
+    padding: 1rem 2rem;
+    font-family: 'Barlow', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    text-decoration: none;
+    border: 1px solid var(--border);
+    transition: border-color 0.2s, color 0.2s;
+  }
+
+  .btn-outline:hover { border-color: var(--orange); color: var(--orange); }
+
+  .hero-stats {
+    position: absolute;
+    right: 3rem;
+    bottom: 5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    animation: fadeUp 0.8s 0.4s ease both;
+  }
+
+  .stat-item { text-align: right; }
+  .stat-num {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 2.8rem;
+    font-weight: 900;
+    color: var(--orange);
+    line-height: 1;
+  }
+  .stat-label {
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* MARQUEE */
+  .marquee-wrap {
+    background: var(--orange);
+    padding: 0.9rem 0;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+
+  .marquee-track {
+    display: inline-flex;
+    animation: marquee 20s linear infinite;
+  }
+
+  .marquee-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 1.5rem;
+    margin-right: 3rem;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 800;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: white;
+  }
+
+  .marquee-item::before { content: '◆'; font-size: 0.5rem; opacity: 0.7; }
+
+  @keyframes marquee {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+
+  /* SECTION BASE */
+  section { padding: 6rem 3rem; }
+
+  .section-label {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--orange);
+    margin-bottom: 1.2rem;
+  }
+
+  .section-label::before {
+    content: '';
+    display: block;
+    width: 30px;
+    height: 1px;
+    background: var(--orange);
+  }
+
+  h2 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: clamp(2.5rem, 5vw, 4.5rem);
+    font-weight: 900;
+    text-transform: uppercase;
+    line-height: 1;
+    letter-spacing: -1px;
+  }
+
+  /* SERVICES */
+  .services { background: var(--dark); }
+
+  .services-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 4rem;
+  }
+
+  .services-header p {
+    max-width: 320px;
+    color: var(--muted);
+    font-weight: 300;
+    line-height: 1.7;
+    font-size: 0.95rem;
+  }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--border);
+  }
+
+  .service-card {
+    background: var(--dark);
+    padding: 2.5rem;
+    position: relative;
+    overflow: hidden;
+    transition: background 0.3s;
+  }
+
+  .service-card:hover { background: var(--charcoal); }
+
+  .service-card::before {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--orange);
+    transition: width 0.4s ease;
+  }
+
+  .service-card:hover::before { width: 100%; }
+
+  .service-num {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 3.5rem;
+    font-weight: 900;
+    color: rgba(232,93,4,0.12);
+    line-height: 1;
+    margin-bottom: 1rem;
+    transition: color 0.3s;
+  }
+
+  .service-card:hover .service-num { color: rgba(232,93,4,0.25); }
+
+  .service-icon {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  .service-title {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 1.4rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 0.8rem;
+  }
+
+  .service-desc {
+    font-size: 0.88rem;
+    color: var(--muted);
+    line-height: 1.7;
+    font-weight: 300;
+  }
+
+  /* WHY US */
+  .why { background: var(--black); }
+
+  .why-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+    margin-top: 3rem;
+  }
+
+  .why-visual {
+    position: relative;
+    height: 480px;
+  }
+
+  .why-box {
+    position: absolute;
+    background: var(--charcoal);
+    border: 1px solid var(--border);
+  }
+
+  .why-box-1 {
+    top: 0; left: 0;
+    width: 75%; height: 70%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 2rem;
+    background: linear-gradient(135deg, var(--charcoal), #1a1a1a);
+  }
+
+  .why-box-1-label {
+    font-size: 0.7rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--orange);
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+  }
+
+  .why-box-1-text {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 2rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    line-height: 1.1;
+  }
+
+  .why-box-2 {
+    bottom: 0; right: 0;
+    width: 55%; height: 45%;
+    background: var(--orange);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+
+  .why-box-2-num {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 4rem;
+    font-weight: 900;
+    color: white;
+    line-height: 1;
+  }
+
+  .why-box-2-text {
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.7);
+  }
+
+  .why-box-3 {
+    top: 55%; right: 25%;
+    width: 20%; height: 20%;
+    background: var(--dark);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+  }
+
+  .why-points {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .why-point {
+    display: flex;
+    gap: 1.2rem;
+    align-items: flex-start;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .why-point:last-child { border-bottom: none; }
+
+  .why-point-icon {
+    width: 40px;
+    height: 40px;
+    background: rgba(232,93,4,0.1);
+    border: 1px solid rgba(232,93,4,0.25);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    flex-shrink: 0;
+    clip-path: polygon(4px 0%, 100% 0%, calc(100% - 4px) 100%, 0% 100%);
+  }
+
+  .why-point-title {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 0.3rem;
+  }
+
+  .why-point-desc {
+    font-size: 0.86rem;
+    color: var(--muted);
+    line-height: 1.6;
+    font-weight: 300;
+  }
+
+  /* REVIEWS */
+  .reviews { background: var(--charcoal); }
+
+  .reviews-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-top: 3rem;
+  }
+
+  .review-card {
+    background: var(--dark);
+    padding: 2rem;
+    border-top: 2px solid var(--orange);
+    position: relative;
+  }
+
+  .review-stars {
+    color: var(--yellow);
+    font-size: 0.9rem;
+    letter-spacing: 2px;
+    margin-bottom: 1rem;
+  }
+
+  .review-text {
+    font-size: 0.88rem;
+    color: var(--muted);
+    line-height: 1.7;
+    font-weight: 300;
+    font-style: italic;
+    margin-bottom: 1.5rem;
+  }
+
+  .review-author {
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--light);
+  }
+
+  /* CONTACT */
+  .contact { background: var(--black); }
+
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    margin-top: 3rem;
+  }
+
+  .contact-info { display: flex; flex-direction: column; gap: 2rem; }
+
+  .contact-item {
+    display: flex;
+    gap: 1.2rem;
+    align-items: flex-start;
+  }
+
+  .contact-item-icon {
+    width: 44px; height: 44px;
+    background: rgba(232,93,4,0.1);
+    border: 1px solid rgba(232,93,4,0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+    flex-shrink: 0;
+  }
+
+  .contact-item-label {
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--orange);
+    margin-bottom: 0.3rem;
+  }
+
+  .contact-item-value {
+    font-size: 0.95rem;
+    color: var(--light);
+    font-weight: 400;
+    line-height: 1.5;
+  }
+
+  .contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+
+  .form-field {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+
+  .form-field label {
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  .form-field input,
+  .form-field textarea,
+  .form-field select {
+    background: var(--charcoal);
+    border: 1px solid var(--border);
+    color: var(--light);
+    padding: 0.85rem 1rem;
+    font-family: 'Barlow', sans-serif;
+    font-size: 0.9rem;
+    outline: none;
+    transition: border-color 0.2s;
+    width: 100%;
+  }
+
+  .form-field input:focus,
+  .form-field textarea:focus,
+  .form-field select:focus {
+    border-color: var(--orange);
+  }
+
+  .form-field textarea { resize: vertical; min-height: 110px; }
+
+  .form-field select option { background: var(--charcoal); }
+
+  /* FOOTER */
+  footer {
+    background: var(--dark);
+    border-top: 1px solid var(--border);
+    padding: 2rem 3rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .footer-logo {
+    font-family: 'Black Ops One', cursive;
+    font-size: 1.1rem;
+    color: var(--orange);
+    letter-spacing: 2px;
+  }
+
+  .footer-logo span { color: var(--muted); }
+
+  .footer-text {
+    font-size: 0.78rem;
+    color: var(--muted);
+    letter-spacing: 1px;
+  }
+
+  .footer-rating {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.78rem;
+    color: var(--yellow);
+    font-weight: 700;
+  }
+
+  /* PHONE HIGHLIGHT */
+  .phone-highlight {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    background: rgba(232,93,4,0.1);
+    border: 1px solid rgba(232,93,4,0.3);
+    padding: 0.7rem 1.5rem;
+    color: var(--orange);
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 1.6rem;
+    font-weight: 900;
+    letter-spacing: 2px;
+    text-decoration: none;
+    margin-top: 1rem;
+    transition: background 0.2s;
+  }
+
+  .phone-highlight:hover { background: rgba(232,93,4,0.2); }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">CIBA<span> CONSTRUCTION</span></div>
+  <ul class="nav-links">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#why">About</a></li>
+    <li><a href="#reviews">Reviews</a></li>
+    <li><a href="#contact" class="nav-cta">Get A Quote</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <div class="hero-accent"></div>
+
+  <div class="hero-tag">Lagos, Nigeria · Est. Since Day One</div>
+
+  <h1>
+    <span class="line-stroke">Build</span>
+    <span class="line-orange">Strong.</span>
+    <span>Build Right.</span>
+  </h1>
+
+  <p class="hero-sub">
+    CIBA Construction delivers quality construction and civil engineering services across Lagos and Nigeria. Trusted by clients who demand excellence, on time, every time.
+  </p>
+
+  <div class="hero-actions">
+    <a href="#contact" class="btn-primary">
+      📞 &nbsp;Request A Quote
+    </a>
+    <a href="#services" class="btn-outline">
+      Our Services →
+    </a>
+  </div>
+
+  <div class="hero-stats">
+    <div class="stat-item">
+      <div class="stat-num">4.9★</div>
+      <div class="stat-label">Google Rating</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">100%</div>
+      <div class="stat-label">Client Satisfaction</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">LGS</div>
+      <div class="stat-label">Lagos Based</div>
+    </div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee-wrap">
+  <div class="marquee-track">
+    <span class="marquee-item">General Construction</span>
+    <span class="marquee-item">Civil Engineering</span>
+    <span class="marquee-item">Renovation & Remodeling</span>
+    <span class="marquee-item">Project Management</span>
+    <span class="marquee-item">Structural Works</span>
+    <span class="marquee-item">Commercial Buildings</span>
+    <span class="marquee-item">Residential Projects</span>
+    <span class="marquee-item">Quality Delivery</span>
+    <!-- duplicate for seamless loop -->
+    <span class="marquee-item">General Construction</span>
+    <span class="marquee-item">Civil Engineering</span>
+    <span class="marquee-item">Renovation & Remodeling</span>
+    <span class="marquee-item">Project Management</span>
+    <span class="marquee-item">Structural Works</span>
+    <span class="marquee-item">Commercial Buildings</span>
+    <span class="marquee-item">Residential Projects</span>
+    <span class="marquee-item">Quality Delivery</span>
+  </div>
+</div>
+
+<!-- SERVICES -->
+<section class="services" id="services">
+  <div class="services-header">
+    <div>
+      <div class="section-label">What We Do</div>
+      <h2>Our<br><span style="color:var(--orange)">Services</span></h2>
+    </div>
+    <p>We bring expertise, precision, and a relentless commitment to quality across all construction and engineering projects.</p>
+  </div>
+
+  <div class="services-grid">
+    <div class="service-card">
+      <div class="service-num">01</div>
+      <div class="service-icon">🏗️</div>
+      <div class="service-title">General Construction</div>
+      <p class="service-desc">From ground-breaking to final handover, we manage complete construction projects with exceptional quality and precision on every build.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-num">02</div>
+      <div class="service-icon">🏢</div>
+      <div class="service-title">Commercial Buildings</div>
+      <p class="service-desc">We design and construct robust commercial structures — office complexes, warehouses, retail spaces — built to last and built to impress.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-num">03</div>
+      <div class="service-icon">🏠</div>
+      <div class="service-title">Residential Projects</div>
+      <p class="service-desc">Your dream home deserves quality materials and skilled craftsmanship. We handle everything from foundation to finishing touches.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-num">04</div>
+      <div class="service-icon">🔧</div>
+      <div class="service-title">Renovation & Remodeling</div>
+      <p class="service-desc">Breathing new life into existing structures with expert renovation services that upgrade functionality without disrupting your schedule.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-num">05</div>
+      <div class="service-icon">📐</div>
+      <div class="service-title">Civil Engineering</div>
+      <p class="service-desc">Roads, drainage, foundations, and structural engineering — our civil team handles the technical backbone of every great project.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-num">06</div>
+      <div class="service-icon">📋</div>
+      <div class="service-title">Project Management</div>
+      <p class="service-desc">Expert oversight from start to finish. We keep your project on budget, on schedule, and on spec — no surprises, just results.</p>
+    </div>
+  </div>
+</section>
+
+<!-- WHY US -->
+<section class="why" id="why">
+  <div class="section-label">Why Choose Us</div>
+  <h2>Built On<br><span style="color:var(--orange)">Trust</span></h2>
+
+  <div class="why-grid">
+    <div class="why-visual">
+      <div class="why-box why-box-1">
+        <div class="why-box-1-label">Lagos Trusted</div>
+        <div class="why-box-1-text">Quality You<br>Can See &<br>Touch</div>
+      </div>
+      <div class="why-box why-box-2">
+        <div class="why-box-2-num">4.9★</div>
+        <div class="why-box-2-text">Google Rating</div>
+      </div>
+      <div class="why-box why-box-3">🏆</div>
+    </div>
+
+    <div class="why-points">
+      <div class="why-point">
+        <div class="why-point-icon">✅</div>
+        <div>
+          <div class="why-point-title">Quality Guaranteed</div>
+          <p class="why-point-desc">Every project is completed to the highest standards. We don't cut corners — our reputation is built one quality project at a time.</p>
+        </div>
+      </div>
+      <div class="why-point">
+        <div class="why-point-icon">⚡</div>
+        <div>
+          <div class="why-point-title">On-Time Delivery</div>
+          <p class="why-point-desc">We respect your timeline. CIBA Construction delivers projects on schedule without compromising the quality of workmanship.</p>
+        </div>
+      </div>
+      <div class="why-point">
+        <div class="why-point-icon">🤝</div>
+        <div>
+          <div class="why-point-title">Client-First Approach</div>
+          <p class="why-point-desc">Our friendly team keeps you informed and involved at every stage. Transparent communication from day one to handover.</p>
+        </div>
+      </div>
+      <div class="why-point">
+        <div class="why-point-icon">💰</div>
+        <div>
+          <div class="why-point-title">Competitive Pricing</div>
+          <p class="why-point-desc">Top-tier construction doesn't have to cost a fortune. We deliver exceptional value and work within your budget framework.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section class="reviews" id="reviews">
+  <div class="section-label">Client Testimonials</div>
+  <h2>What Clients<br><span style="color:var(--orange)">Say</span></h2>
+
+  <div class="reviews-grid">
+    <div class="review-card">
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text">"Great service, great work. Love what they did with our project. Professional team that truly delivered beyond expectations."</p>
+      <div class="review-author">— Verified Client · Google</div>
+    </div>
+    <div class="review-card">
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text">"Friendly staffs and a relaxed, professional atmosphere. They made a complex construction project feel manageable. Highly recommended."</p>
+      <div class="review-author">— Verified Client · Google</div>
+    </div>
+    <div class="review-card">
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text">"Great place, great people, great project! CIBA Construction impressed us at every turn. We'll definitely be working with them again."</p>
+      <div class="review-author">— Verified Client · Google</div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="section-label">Get In Touch</div>
+  <h2>Start Your<br><span style="color:var(--orange)">Project</span></h2>
+
+  <div class="contact-grid">
+    <div class="contact-info">
+      <p style="color:var(--muted); font-weight:300; line-height:1.8; font-size:0.95rem; max-width:380px;">
+        Ready to build something great? Reach out to the CIBA Construction team today. We respond fast and quote faster.
+      </p>
+
+      <div class="contact-item">
+        <div class="contact-item-icon">📞</div>
+        <div>
+          <div class="contact-item-label">Phone / WhatsApp</div>
+          <a href="tel:+2349062964623" class="phone-highlight">+234 906 296 4623</a>
+        </div>
+      </div>
+
+      <div class="contact-item">
+        <div class="contact-item-icon">📍</div>
+        <div>
+          <div class="contact-item-label">Our Office</div>
+          <div class="contact-item-value">387 The Biostadt Place<br>Agege Motor Road, Beside Coca-Cola<br>Cappa Bus Stop, Mushin<br>Lagos 101233, Nigeria</div>
+        </div>
+      </div>
+
+      <div class="contact-item">
+        <div class="contact-item-icon">🕐</div>
+        <div>
+          <div class="contact-item-label">Office Hours</div>
+          <div class="contact-item-value">Mon – Fri: 9:00 AM – 5:00 PM<br>Saturday: 10:00 AM – 4:00 PM<br>Sunday: Closed</div>
+        </div>
+      </div>
+    </div>
+
+    <form class="contact-form" onsubmit="handleSubmit(event)">
+      <div class="form-row">
+        <div class="form-field">
+          <label>Full Name</label>
+          <input type="text" placeholder="Your name" required>
+        </div>
+        <div class="form-field">
+          <label>Phone Number</label>
+          <input type="tel" placeholder="+234 ...">
+        </div>
+      </div>
+      <div class="form-field">
+        <label>Email Address</label>
+        <input type="email" placeholder="your@email.com">
+      </div>
+      <div class="form-field">
+        <label>Project Type</label>
+        <select>
+          <option value="">Select a service...</option>
+          <option>General Construction</option>
+          <option>Commercial Building</option>
+          <option>Residential Project</option>
+          <option>Renovation & Remodeling</option>
+          <option>Civil Engineering</option>
+          <option>Project Management</option>
+          <option>Other</option>
+        </select>
+      </div>
+      <div class="form-field">
+        <label>Project Details</label>
+        <textarea placeholder="Tell us about your project — location, scope, timeline..."></textarea>
+      </div>
+      <button type="submit" class="btn-primary" style="width:fit-content; cursor:pointer; border:none;">
+        Send Message →
+      </button>
+    </form>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">CIBA<span> CONSTRUCTION CO. LTD</span></div>
+  <div class="footer-text">© 2025 CIBA Construction Company Limited. All rights reserved.</div>
+  <div class="footer-rating">★★★★★ <span style="color:var(--muted)">4.9 on Google</span></div>
+</footer>
+
+<script>
+  function handleSubmit(e) {
+    e.preventDefault();
+    const btn = e.target.querySelector('button');
+    btn.textContent = '✅ Message Sent!';
+    btn.style.background = '#2d6a4f';
+    setTimeout(() => {
+      btn.textContent = 'Send Message →';
+      btn.style.background = 'var(--orange)';
+      e.target.reset();
+    }, 3000);
+  }
+
+  // Intersection observer for fade-in
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.style.opacity = '1';
+        entry.target.style.transform = 'translateY(0)';
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.service-card, .why-point, .review-card, .contact-item').forEach(el => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(20px)';
+    el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+    observer.observe(el);
+  });
+</script>
+
+</body>
+</html>
